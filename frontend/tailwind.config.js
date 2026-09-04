@@ -1,0 +1,67 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        paper: '#F6F4EE',
+        ink: '#161B22',
+        navy: {
+          DEFAULT: '#132A3A',
+          50: '#EAF0F2',
+          100: '#CBDBE0',
+          200: '#9FB9C2',
+          300: '#6D909D',
+          400: '#3F6675',
+          500: '#1F4657',
+          600: '#183849',
+          700: '#132A3A',
+          800: '#0D1E2A',
+          900: '#08141C',
+        },
+        moss: {
+          DEFAULT: '#2F6F5E',
+          50: '#EAF3EF',
+          100: '#C9E2D7',
+          200: '#9FCBB8',
+          300: '#6FB096',
+          400: '#458D75',
+          500: '#2F6F5E',
+          600: '#265A4C',
+          700: '#1D453B',
+          800: '#15332B',
+          900: '#0D211C',
+        },
+        clay: {
+          DEFAULT: '#B5482A',
+          50: '#FBEEE9',
+          100: '#F3CFC0',
+          200: '#E7A98F',
+          300: '#D9805E',
+          400: '#C75F38',
+          500: '#B5482A',
+          600: '#963A21',
+          700: '#742D1A',
+          800: '#521F12',
+          900: '#33130B',
+        },
+        wheat: '#D8A84E',
+      },
+      fontFamily: {
+        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(19, 42, 58, 0.06), 0 1px 0 rgba(19, 42, 58, 0.04)',
+      },
+      borderRadius: {
+        sm: '3px',
+        DEFAULT: '4px',
+        md: '6px',
+        lg: '8px',
+      },
+    },
+  },
+  plugins: [],
+}

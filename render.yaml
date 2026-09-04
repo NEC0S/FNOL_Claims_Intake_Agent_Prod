@@ -1,0 +1,54 @@
+services:
+  - type: web
+    name: fnol-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SETTINGS_ENCRYPTION_KEY
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@example.com
+      - key: ADMIN_PASSWORD
+        sync: false
+      # Optional fallbacks -- can instead be entered from the Settings page
+      # once the app is running. Leave unset in the Render dashboard to
+      # require UI configuration.
+      - key: LLM_API_KEY
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: IMAP_USER
+        sync: false
+      - key: IMAP_PASSWORD
+        sync: false
+      - key: CORS_ORIGINS
+        value: "*"
+
+  - type: web
+    name: fnol-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: starter
+    envVars:
+      # Set this to the backend service's Render URL, e.g.
+      # https://fnol-backend.onrender.com (see README for details -- Render
+      # doesn't reliably template a scheme into cross-service references,
+      # so this is set once by hand after the backend's first deploy).
+      - key: BACKEND_URL
+        sync: false
+      - key: PORT
+        value: "8080"
