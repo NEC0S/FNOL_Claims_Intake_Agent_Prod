@@ -4,7 +4,7 @@ services:
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
-    plan: starter
+    plan: free
     healthCheckPath: /api/health
     envVars:
       - key: SUPABASE_URL
@@ -42,7 +42,7 @@ services:
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
-    plan: starter
+    plan: free
     envVars:
       # Set this to the backend service's Render URL, e.g.
       # https://fnol-backend.onrender.com (see README for details -- Render
