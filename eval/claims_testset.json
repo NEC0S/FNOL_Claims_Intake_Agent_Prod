@@ -1,0 +1,1702 @@
+[
+  {
+    "id": "claim_028",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-103402. The incident happened on 2026-08-05 in Chicago, IL. The damage was from vandalism, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-103402",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-05",
+      "incident_location": "Chicago, IL",
+      "damage_type": "vandalism",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_012",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-183667. The incident happened on 2026-08-31 in Miami, FL. The damage was from collision, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-183667",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-31",
+      "incident_location": "Miami, FL",
+      "damage_type": "collision",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_098",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Hannah Brooks, location: Austin, TX, damage type: theft, policy: POL-725550, amount: $4800. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-725550",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": null,
+      "incident_location": "Austin, TX",
+      "damage_type": "theft",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (incident_date); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_075",
+    "category": "duplicate",
+    "email_text": "Hi, this is Daniel Osei. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-04 in Phoenix, AZ, under policy POL-273148. It involved vandalism damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-273148",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-04",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "vandalism",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_035",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_077",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Daniel Osei. I need to report hail damage from an incident on 2026-08-27 in Denver, CO. My policy is POL-487477 and the estimated cost is $12500. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-487477",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-27",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_050",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-197793. The incident happened on 2026-08-27 in Austin, TX. The damage was from collision, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-197793",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-27",
+      "incident_location": "Austin, TX",
+      "damage_type": "collision",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_007",
+    "category": "clean",
+    "email_text": "Hi, I'm Marcus Chen and I'd like to report an insurance claim. My policy number is POL-391369. The incident happened on 2026-08-24 in Miami, FL. The damage was from vandalism, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-391369",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-24",
+      "incident_location": "Miami, FL",
+      "damage_type": "vandalism",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_018",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-520651. The incident happened on 2026-09-02 in Miami, FL. The damage was from wind, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-520651",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-09-02",
+      "incident_location": "Miami, FL",
+      "damage_type": "wind",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_076",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Daniel Osei. I need to report hail damage from an incident on 2026-08-29 in Denver, CO. My policy is POL-630458 and the estimated cost is $1200. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-630458",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-29",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_090",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Marcus Chen. I need to report hail damage from an incident on 2026-08-22 in Chicago, IL. My policy is POL-750810 and the estimated cost is $2500. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-750810",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-22",
+      "incident_location": "Chicago, IL",
+      "damage_type": "hail",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_066",
+    "category": "duplicate",
+    "email_text": "Hi, this is Priya Nair. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-09-03 in Chicago, IL, under policy POL-947272. It involved theft damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-947272",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-09-03",
+      "incident_location": "Chicago, IL",
+      "damage_type": "theft",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_049",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_069",
+    "category": "duplicate",
+    "email_text": "Hi, this is Jordan Reyes. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-20 in Seattle, WA, under policy POL-216739. It involved wind damage and I estimated the repairs at $2500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-216739",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-20",
+      "incident_location": "Seattle, WA",
+      "damage_type": "wind",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_001",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_024",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-930555. The incident happened on 2026-07-30 in Denver, CO. The damage was from hail, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-930555",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-07-30",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_100",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Hannah Brooks, location: Austin, TX, damage type: fire, policy: POL-843215, date: 2026-09-06. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-843215",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-09-06",
+      "incident_location": "Austin, TX",
+      "damage_type": "fire",
+      "estimated_amount": null
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (estimated_amount); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_046",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-163556. The incident happened on 2026-08-16 in Austin, TX. The damage was from vandalism, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-163556",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-16",
+      "incident_location": "Austin, TX",
+      "damage_type": "vandalism",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_088",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Jordan Reyes. I need to report hail damage from an incident on 2026-08-15 in Miami, FL. My policy is POL-482364 and the estimated cost is $21000. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-482364",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-15",
+      "incident_location": "Miami, FL",
+      "damage_type": "hail",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_078",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Jordan Reyes. I need to report hail damage from an incident on 2026-07-26 in Seattle, WA. My policy is POL-417212 and the estimated cost is $12500. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-417212",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-07-26",
+      "incident_location": "Seattle, WA",
+      "damage_type": "hail",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_045",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-864491. The incident happened on 2026-07-25 in Chicago, IL. The damage was from theft, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-864491",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-07-25",
+      "incident_location": "Chicago, IL",
+      "damage_type": "theft",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_096",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Hannah Brooks, location: Seattle, WA, damage type: vandalism, policy: POL-634150, amount: $12500. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-634150",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": null,
+      "incident_location": "Seattle, WA",
+      "damage_type": "vandalism",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (incident_date); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_064",
+    "category": "duplicate",
+    "email_text": "Hi, this is Daniel Osei. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-07-31 in Seattle, WA, under policy POL-688637. It involved collision damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-688637",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-07-31",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_021",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_004",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-343962. The incident happened on 2026-08-02 in Denver, CO. The damage was from wind, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-343962",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-02",
+      "incident_location": "Denver, CO",
+      "damage_type": "wind",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_070",
+    "category": "duplicate",
+    "email_text": "Hi, this is Laura Kim. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-27 in Denver, CO, under policy POL-260263. It involved fire damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-260263",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-08-27",
+      "incident_location": "Denver, CO",
+      "damage_type": "fire",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_030",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_034",
+    "category": "clean",
+    "email_text": "Hi, I'm Marcus Chen and I'd like to report an insurance claim. My policy number is POL-903035. The incident happened on 2026-08-29 in Phoenix, AZ. The damage was from theft, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-903035",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-29",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "theft",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_021",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-688637. The incident happened on 2026-07-31 in Seattle, WA. The damage was from collision, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-688637",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-07-31",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_035",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-273148. The incident happened on 2026-08-04 in Phoenix, AZ. The damage was from vandalism, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-273148",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-04",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "vandalism",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_008",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-197251. The incident happened on 2026-08-31 in Austin, TX. The damage was from flood, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-197251",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-31",
+      "incident_location": "Austin, TX",
+      "damage_type": "flood",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_062",
+    "category": "duplicate",
+    "email_text": "Hi, this is Marcus Chen. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-21 in Seattle, WA, under policy POL-581141. It involved wind damage and I estimated the repairs at $2500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-581141",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-21",
+      "incident_location": "Seattle, WA",
+      "damage_type": "wind",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_020",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_068",
+    "category": "duplicate",
+    "email_text": "Hi, this is Hannah Brooks. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-23 in Seattle, WA, under policy POL-835392. It involved collision damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-835392",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-23",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_005",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_032",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-972064. The incident happened on 2026-08-22 in Miami, FL. The damage was from hail, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-972064",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-22",
+      "incident_location": "Miami, FL",
+      "damage_type": "hail",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_036",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-322086. The incident happened on 2026-08-18 in Chicago, IL. The damage was from collision, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-322086",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-18",
+      "incident_location": "Chicago, IL",
+      "damage_type": "collision",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_074",
+    "category": "duplicate",
+    "email_text": "Hi, this is Hannah Brooks. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-23 in Seattle, WA, under policy POL-835392. It involved collision damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-835392",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-23",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_005",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_055",
+    "category": "clean",
+    "email_text": "Hi, I'm Marcus Chen and I'd like to report an insurance claim. My policy number is POL-599948. The incident happened on 2026-09-03 in Phoenix, AZ. The damage was from fire, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-599948",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-09-03",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "fire",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_067",
+    "category": "duplicate",
+    "email_text": "Hi, this is Daniel Osei. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-12 in Miami, FL, under policy POL-350280. It involved wind damage and I estimated the repairs at $21000. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-350280",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-12",
+      "incident_location": "Miami, FL",
+      "damage_type": "wind",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_060",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_030",
+    "category": "clean",
+    "email_text": "Hi, I'm Laura Kim and I'd like to report an insurance claim. My policy number is POL-260263. The incident happened on 2026-08-27 in Denver, CO. The damage was from fire, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-260263",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-08-27",
+      "incident_location": "Denver, CO",
+      "damage_type": "fire",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_005",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-835392. The incident happened on 2026-08-23 in Seattle, WA. The damage was from collision, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-835392",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-23",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_058",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-185965. The incident happened on 2026-07-26 in Phoenix, AZ. The damage was from fire, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-185965",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-07-26",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "fire",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_061",
+    "category": "duplicate",
+    "email_text": "Hi, this is Marcus Chen. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-01 in Denver, CO, under policy POL-665427. It involved fire damage and I estimated the repairs at $7600. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-665427",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-01",
+      "incident_location": "Denver, CO",
+      "damage_type": "fire",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_042",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_003",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-719176. The incident happened on 2026-09-04 in Austin, TX. The damage was from hail, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-719176",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-09-04",
+      "incident_location": "Austin, TX",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_002",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-872246. The incident happened on 2026-07-25 in Denver, CO. The damage was from theft, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-872246",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-07-25",
+      "incident_location": "Denver, CO",
+      "damage_type": "theft",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_010",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-182627. The incident happened on 2026-07-28 in Chicago, IL. The damage was from fire, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-182627",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-07-28",
+      "incident_location": "Chicago, IL",
+      "damage_type": "fire",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_013",
+    "category": "clean",
+    "email_text": "Hi, I'm Laura Kim and I'd like to report an insurance claim. My policy number is POL-766563. The incident happened on 2026-08-27 in Chicago, IL. The damage was from flood, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-766563",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-08-27",
+      "incident_location": "Chicago, IL",
+      "damage_type": "flood",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_015",
+    "category": "clean",
+    "email_text": "Hi, I'm Marcus Chen and I'd like to report an insurance claim. My policy number is POL-765822. The incident happened on 2026-08-03 in Phoenix, AZ. The damage was from theft, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-765822",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-03",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "theft",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_020",
+    "category": "clean",
+    "email_text": "Hi, I'm Marcus Chen and I'd like to report an insurance claim. My policy number is POL-581141. The incident happened on 2026-08-21 in Seattle, WA. The damage was from wind, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-581141",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-21",
+      "incident_location": "Seattle, WA",
+      "damage_type": "wind",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_087",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Marcus Chen. I need to report hail damage from an incident on 2026-08-10 in Phoenix, AZ. My policy is POL-679364 and the estimated cost is $1200. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-679364",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-10",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_079",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Priya Nair. I need to report hail damage from an incident on 2026-08-29 in Miami, FL. My policy is POL-795613 and the estimated cost is $1200. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-795613",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-08-29",
+      "incident_location": "Miami, FL",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_022",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-479580. The incident happened on 2026-08-29 in Chicago, IL. The damage was from fire, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-479580",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-29",
+      "incident_location": "Chicago, IL",
+      "damage_type": "fire",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_084",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Marcus Chen. I need to report hail damage from an incident on 2026-07-28 in Miami, FL. My policy is POL-908577 and the estimated cost is $2500. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-908577",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-07-28",
+      "incident_location": "Miami, FL",
+      "damage_type": "hail",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_089",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Priya Nair. I need to report hail damage from an incident on 2026-08-15 in Denver, CO. My policy is POL-799330 and the estimated cost is $12500. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-799330",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-08-15",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_083",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Hannah Brooks. I need to report hail damage from an incident on 2026-08-20 in Austin, TX. My policy is POL-765095 and the estimated cost is $1200. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-765095",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-20",
+      "incident_location": "Austin, TX",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_059",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-431737. The incident happened on 2026-08-24 in Phoenix, AZ. The damage was from theft, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-431737",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-24",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "theft",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_019",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-429963. The incident happened on 2026-07-27 in Seattle, WA. The damage was from collision, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-429963",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-07-27",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_006",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-948749. The incident happened on 2026-08-27 in Miami, FL. The damage was from theft, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-948749",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-27",
+      "incident_location": "Miami, FL",
+      "damage_type": "theft",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_091",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Jordan Reyes, location: Denver, CO, damage type: theft, policy: POL-532322, amount: $4800. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-532322",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": null,
+      "incident_location": "Denver, CO",
+      "damage_type": "theft",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (incident_date); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_011",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-301629. The incident happened on 2026-09-04 in Phoenix, AZ. The damage was from theft, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-301629",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-09-04",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "theft",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_048",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-292401. The incident happened on 2026-08-08 in Chicago, IL. The damage was from wind, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-292401",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-08",
+      "incident_location": "Chicago, IL",
+      "damage_type": "wind",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_057",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-225710. The incident happened on 2026-07-31 in Chicago, IL. The damage was from fire, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-225710",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-07-31",
+      "incident_location": "Chicago, IL",
+      "damage_type": "fire",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_051",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-324130. The incident happened on 2026-09-03 in Chicago, IL. The damage was from wind, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-324130",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-09-03",
+      "incident_location": "Chicago, IL",
+      "damage_type": "wind",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_031",
+    "category": "clean",
+    "email_text": "Hi, I'm Laura Kim and I'd like to report an insurance claim. My policy number is POL-728038. The incident happened on 2026-08-06 in Austin, TX. The damage was from hail, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-728038",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-08-06",
+      "incident_location": "Austin, TX",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_033",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-182582. The incident happened on 2026-08-06 in Phoenix, AZ. The damage was from vandalism, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-182582",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-08-06",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "vandalism",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_014",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-802729. The incident happened on 2026-07-25 in Denver, CO. The damage was from theft, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-802729",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-07-25",
+      "incident_location": "Denver, CO",
+      "damage_type": "theft",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_044",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-790993. The incident happened on 2026-08-15 in Austin, TX. The damage was from collision, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-790993",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-15",
+      "incident_location": "Austin, TX",
+      "damage_type": "collision",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_063",
+    "category": "duplicate",
+    "email_text": "Hi, this is Laura Kim. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-27 in Denver, CO, under policy POL-260263. It involved fire damage and I estimated the repairs at $12500. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-260263",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-08-27",
+      "incident_location": "Denver, CO",
+      "damage_type": "fire",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_030",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_029",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-211579. The incident happened on 2026-07-28 in Phoenix, AZ. The damage was from fire, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-211579",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-07-28",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "fire",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_060",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-350280. The incident happened on 2026-08-12 in Miami, FL. The damage was from wind, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-350280",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-12",
+      "incident_location": "Miami, FL",
+      "damage_type": "wind",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_082",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Omar Farouk. I need to report hail damage from an incident on 2026-08-21 in Miami, FL. My policy is POL-629959 and the estimated cost is $1200. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-629959",
+      "claimant_name": "Omar Farouk",
+      "incident_date": "2026-08-21",
+      "incident_location": "Miami, FL",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_094",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Emily Sato, location: Miami, FL, damage type: hail, date: 2026-08-23, amount: $21000. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": null,
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-23",
+      "incident_location": "Miami, FL",
+      "damage_type": "hail",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (policy_number); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_027",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-456699. The incident happened on 2026-08-19 in Seattle, WA. The damage was from collision, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-456699",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-08-19",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_037",
+    "category": "clean",
+    "email_text": "Hi, I'm Omar Farouk and I'd like to report an insurance claim. My policy number is POL-491559. The incident happened on 2026-08-04 in Seattle, WA. The damage was from collision, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-491559",
+      "claimant_name": "Omar Farouk",
+      "incident_date": "2026-08-04",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_072",
+    "category": "duplicate",
+    "email_text": "Hi, this is Omar Farouk. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-04 in Seattle, WA, under policy POL-491559. It involved collision damage and I estimated the repairs at $1200. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-491559",
+      "claimant_name": "Omar Farouk",
+      "incident_date": "2026-08-04",
+      "incident_location": "Seattle, WA",
+      "damage_type": "collision",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_037",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_001",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-216739. The incident happened on 2026-08-20 in Seattle, WA. The damage was from wind, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-216739",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-20",
+      "incident_location": "Seattle, WA",
+      "damage_type": "wind",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_081",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Laura Kim. I need to report hail damage from an incident on 2026-08-24 in Denver, CO. My policy is POL-852470 and the estimated cost is $21000. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-852470",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-08-24",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_092",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Emily Sato, location: Seattle, WA, damage type: wind, date: 2026-08-20, amount: $21000. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": null,
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-20",
+      "incident_location": "Seattle, WA",
+      "damage_type": "wind",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (policy_number); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_073",
+    "category": "duplicate",
+    "email_text": "Hi, this is Marcus Chen. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-24 in Miami, FL, under policy POL-391369. It involved vandalism damage and I estimated the repairs at $4800. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-391369",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-24",
+      "incident_location": "Miami, FL",
+      "damage_type": "vandalism",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_007",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_023",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-892495. The incident happened on 2026-08-30 in Austin, TX. The damage was from wind, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-892495",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-30",
+      "incident_location": "Austin, TX",
+      "damage_type": "wind",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_049",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-947272. The incident happened on 2026-09-03 in Chicago, IL. The damage was from theft, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-947272",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-09-03",
+      "incident_location": "Chicago, IL",
+      "damage_type": "theft",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_054",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-161324. The incident happened on 2026-08-17 in Denver, CO. The damage was from hail, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-161324",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-17",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_025",
+    "category": "clean",
+    "email_text": "Hi, I'm Omar Farouk and I'd like to report an insurance claim. My policy number is POL-724834. The incident happened on 2026-08-04 in Chicago, IL. The damage was from flood, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-724834",
+      "claimant_name": "Omar Farouk",
+      "incident_date": "2026-08-04",
+      "incident_location": "Chicago, IL",
+      "damage_type": "flood",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_017",
+    "category": "clean",
+    "email_text": "Hi, I'm Laura Kim and I'd like to report an insurance claim. My policy number is POL-330283. The incident happened on 2026-09-03 in Phoenix, AZ. The damage was from wind, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-330283",
+      "claimant_name": "Laura Kim",
+      "incident_date": "2026-09-03",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "wind",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_071",
+    "category": "duplicate",
+    "email_text": "Hi, this is Emily Sato. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-09-02 in Seattle, WA, under policy POL-161733. It involved hail damage and I estimated the repairs at $4800. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-161733",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-09-02",
+      "incident_location": "Seattle, WA",
+      "damage_type": "hail",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_040",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_038",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-335612. The incident happened on 2026-08-16 in Denver, CO. The damage was from hail, and I estimate the damage will cost about $12500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-335612",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-08-16",
+      "incident_location": "Denver, CO",
+      "damage_type": "hail",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_052",
+    "category": "clean",
+    "email_text": "Hi, I'm Daniel Osei and I'd like to report an insurance claim. My policy number is POL-509386. The incident happened on 2026-08-08 in Austin, TX. The damage was from flood, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-509386",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-08",
+      "incident_location": "Austin, TX",
+      "damage_type": "flood",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_042",
+    "category": "clean",
+    "email_text": "Hi, I'm Marcus Chen and I'd like to report an insurance claim. My policy number is POL-665427. The incident happened on 2026-08-01 in Denver, CO. The damage was from fire, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-665427",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-01",
+      "incident_location": "Denver, CO",
+      "damage_type": "fire",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_053",
+    "category": "clean",
+    "email_text": "Hi, I'm Omar Farouk and I'd like to report an insurance claim. My policy number is POL-865990. The incident happened on 2026-08-28 in Seattle, WA. The damage was from wind, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-865990",
+      "claimant_name": "Omar Farouk",
+      "incident_date": "2026-08-28",
+      "incident_location": "Seattle, WA",
+      "damage_type": "wind",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_040",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-161733. The incident happened on 2026-09-02 in Seattle, WA. The damage was from hail, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-161733",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-09-02",
+      "incident_location": "Seattle, WA",
+      "damage_type": "hail",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_065",
+    "category": "duplicate",
+    "email_text": "Hi, this is Daniel Osei. I'm following up because I wasn't sure my claim email went through. The incident was on 2026-08-12 in Miami, FL, under policy POL-350280. It involved wind damage and I estimated the repairs at $21000. Please let me know if you need anything else from me.",
+    "ground_truth": {
+      "policy_number": "POL-350280",
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-12",
+      "incident_location": "Miami, FL",
+      "damage_type": "wind",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "deny",
+    "expected_escalation": false,
+    "duplicate_of": "claim_060",
+    "notes": "Duplicate of an already-processed claim; should be caught by dedup check."
+  },
+  {
+    "id": "claim_039",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-341292. The incident happened on 2026-09-06 in Phoenix, AZ. The damage was from hail, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-341292",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-09-06",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "hail",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_016",
+    "category": "clean",
+    "email_text": "Hi, I'm Hannah Brooks and I'd like to report an insurance claim. My policy number is POL-584714. The incident happened on 2026-08-20 in Denver, CO. The damage was from theft, and I estimate the damage will cost about $21000. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-584714",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-20",
+      "incident_location": "Denver, CO",
+      "damage_type": "theft",
+      "estimated_amount": 21000
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_085",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Hannah Brooks. I need to report hail damage from an incident on 2026-08-02 in Seattle, WA. My policy is POL-563298 and the estimated cost is $1200. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-563298",
+      "claimant_name": "Hannah Brooks",
+      "incident_date": "2026-08-02",
+      "incident_location": "Seattle, WA",
+      "damage_type": "hail",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_041",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-639131. The incident happened on 2026-08-20 in Austin, TX. The damage was from theft, and I estimate the damage will cost about $7600. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-639131",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-20",
+      "incident_location": "Austin, TX",
+      "damage_type": "theft",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_080",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Marcus Chen. I need to report hail damage from an incident on 2026-08-20 in Austin, TX. My policy is POL-878480 and the estimated cost is $12500. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-878480",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-20",
+      "incident_location": "Austin, TX",
+      "damage_type": "hail",
+      "estimated_amount": 12500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_043",
+    "category": "clean",
+    "email_text": "Hi, I'm Omar Farouk and I'd like to report an insurance claim. My policy number is POL-922733. The incident happened on 2026-08-11 in Denver, CO. The damage was from wind, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-922733",
+      "claimant_name": "Omar Farouk",
+      "incident_date": "2026-08-11",
+      "incident_location": "Denver, CO",
+      "damage_type": "wind",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_097",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Daniel Osei, location: Austin, TX, damage type: fire, date: 2026-08-26, amount: $4800. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": null,
+      "claimant_name": "Daniel Osei",
+      "incident_date": "2026-08-26",
+      "incident_location": "Austin, TX",
+      "damage_type": "fire",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (policy_number); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_009",
+    "category": "clean",
+    "email_text": "Hi, I'm Jordan Reyes and I'd like to report an insurance claim. My policy number is POL-377370. The incident happened on 2026-08-08 in Phoenix, AZ. The damage was from fire, and I estimate the damage will cost about $1200. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-377370",
+      "claimant_name": "Jordan Reyes",
+      "incident_date": "2026-08-08",
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "fire",
+      "estimated_amount": 1200
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_056",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-171849. The incident happened on 2026-07-25 in Denver, CO. The damage was from vandalism, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-171849",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-07-25",
+      "incident_location": "Denver, CO",
+      "damage_type": "vandalism",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_047",
+    "category": "clean",
+    "email_text": "Hi, I'm Emily Sato and I'd like to report an insurance claim. My policy number is POL-300896. The incident happened on 2026-08-03 in Denver, CO. The damage was from collision, and I estimate the damage will cost about $2500. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-300896",
+      "claimant_name": "Emily Sato",
+      "incident_date": "2026-08-03",
+      "incident_location": "Denver, CO",
+      "damage_type": "collision",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_026",
+    "category": "clean",
+    "email_text": "Hi, I'm Priya Nair and I'd like to report an insurance claim. My policy number is POL-813328. The incident happened on 2026-07-25 in Austin, TX. The damage was from fire, and I estimate the damage will cost about $4800. Please let me know what information you need next.",
+    "ground_truth": {
+      "policy_number": "POL-813328",
+      "claimant_name": "Priya Nair",
+      "incident_date": "2026-07-25",
+      "incident_location": "Austin, TX",
+      "damage_type": "fire",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "approve",
+    "expected_escalation": false,
+    "duplicate_of": null,
+    "notes": "Straightforward valid claim, no red flags."
+  },
+  {
+    "id": "claim_086",
+    "category": "weather_mismatch",
+    "email_text": "Hello, I'm Marcus Chen. I need to report hail damage from an incident on 2026-08-03 in Austin, TX. My policy is POL-824586 and the estimated cost is $4800. Please advise on the next steps.",
+    "ground_truth": {
+      "policy_number": "POL-824586",
+      "claimant_name": "Marcus Chen",
+      "incident_date": "2026-08-03",
+      "incident_location": "Austin, TX",
+      "damage_type": "hail",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Damage type claimed does not match verifiable weather history for the date/location."
+  },
+  {
+    "id": "claim_099",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Priya Nair, location: Phoenix, AZ, damage type: fire, policy: POL-636265, amount: $2500. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-636265",
+      "claimant_name": "Priya Nair",
+      "incident_date": null,
+      "incident_location": "Phoenix, AZ",
+      "damage_type": "fire",
+      "estimated_amount": 2500
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (incident_date); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_095",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Daniel Osei, location: Chicago, IL, damage type: vandalism, policy: POL-444207, amount: $4800. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-444207",
+      "claimant_name": "Daniel Osei",
+      "incident_date": null,
+      "incident_location": "Chicago, IL",
+      "damage_type": "vandalism",
+      "estimated_amount": 4800
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (incident_date); should trigger human escalation, not a guessed value."
+  },
+  {
+    "id": "claim_093",
+    "category": "ambiguous",
+    "email_text": "Hello, I need to report a claim. name: Omar Farouk, location: Chicago, IL, damage type: wind, policy: POL-140605, amount: $7600. I can provide more details if needed.",
+    "ground_truth": {
+      "policy_number": "POL-140605",
+      "claimant_name": "Omar Farouk",
+      "incident_date": null,
+      "incident_location": "Chicago, IL",
+      "damage_type": "wind",
+      "estimated_amount": 7600
+    },
+    "expected_decision": "investigate",
+    "expected_escalation": true,
+    "duplicate_of": null,
+    "notes": "Missing required field (incident_date); should trigger human escalation, not a guessed value."
+  }
+]
