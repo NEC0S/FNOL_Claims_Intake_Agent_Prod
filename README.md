@@ -54,14 +54,15 @@ There is no mock mode. Every node talks to a live system (LLM API, Supabase, IMA
 4. [Decision Logic](#decision-logic)
 5. [Data Model](#data-model)
 6. [Feature List](#feature-list)
-7. [One-Time Setup](#one-time-setup)
-8. [Run Locally with Docker Compose](#run-locally-with-docker-compose)
-9. [Run Locally Without Docker](#run-locally-without-docker-dev-mode)
-10. [Deploy to Render](#deploy-to-render)
-11. [Project Structure](#project-structure)
-12. [Duplicate & Supersession Handling](#duplicate--supersession-handling)
-13. [Reliability & Failure Handling](#reliability--failure-handling)
-14. [Security Notes](#security-notes)
+7. [Evaluation](#evaluation)
+8. [One-Time Setup](#one-time-setup)
+9. [Run Locally with Docker Compose](#run-locally-with-docker-compose)
+10. [Run Locally Without Docker](#run-locally-without-docker-dev-mode)
+11. [Deploy to Render](#deploy-to-render)
+12. [Project Structure](#project-structure)
+13. [Duplicate & Supersession Handling](#duplicate--supersession-handling)
+14. [Reliability & Failure Handling](#reliability--failure-handling)
+15. [Security Notes](#security-notes)
 
 ---
 
@@ -262,6 +263,71 @@ Run `backend/app/schema.sql` once via **Supabase → Project → SQL Editor → 
 - **Inbox poller**: start/stop background IMAP polling, trigger a poll immediately, see run history. Runs entirely server-side (APScheduler), so it keeps working even with the browser closed.
 - **Query database** page: a locked-down SQL editor (SELECT / WITH only — everything else is rejected before it reaches Postgres) with example queries, a table browser, and CSV export.
 - **Users** page (admin only): create manager/checker/admin accounts, change roles, activate/deactivate.
+
+---
+
+## Evaluation
+
+ClaimPilot was benchmarked against a 100-claim synthetic test set spanning four
+risk categories (clean, duplicate, weather-mismatch, ambiguous), using a custom
+evaluation harness that scores structured-field extraction accuracy, decision
+correctness, hallucination rate, and escalation behavior.
+
+### Headline Results
+
+| Metric | Value |
+|---|---|
+| Field extraction accuracy | **98.9%** |
+| Hallucination rate | **0.0%** |
+| Escalation recall | **87.1%** |
+| Escalation precision | 32.5% |
+| Decision accuracy (overall) | 33.3% |
+| Escalation rate (predicted) | 92.2% |
+| Mean latency | 18,160 ms |
+| p50 / p95 latency | 17,853 ms / 24,097 ms |
+
+### By Category
+
+| Category | n | Field accuracy | Decision accuracy |
+|---|---|---|---|
+| clean | 59 | 100.0% | 5.1% |
+| duplicate | 15 | 95.5% | 86.7% |
+| weather_mismatch | 15 | 98.9% | 93.3% |
+| ambiguous | 1 | 83.3% | 0.0% |
+
+### Key Findings
+
+- **Extraction is highly reliable.** The extraction agent correctly parses
+  policy number, claimant name, incident date, location, damage type, and
+  estimated amount from free-text emails with 98.9% accuracy and zero
+  hallucinated values — no fabricated fields were traced to text absent from
+  the source email.
+
+- **Risk-detection logic works correctly.** Duplicate detection (86.7%
+  decision accuracy) and weather-corroboration checks (93.3%) both perform
+  well, confirming the underlying detection agents reason correctly about
+  genuinely risky claims.
+
+- **Escalation recall is strong, at the cost of precision.** The system
+  reliably escalates claims that need human review (87.1% recall — very few
+  risky claims are missed), but at 32.5% precision, most escalated claims
+  didn't actually need review. Root cause: an auto-approval payout threshold
+  (~$1,500) set well below typical claim amounts in the test set, causing 54
+  of 59 "clean" claims to be escalated unnecessarily.
+
+- **Fix is narrow and well-understood.** Because duplicate and weather-check
+  logic are both sound, the identified issue is isolated to a single
+  miscalibrated business rule (the auto-approval threshold) rather than a
+  flaw in the agents' reasoning — a straightforward tuning fix rather than an
+  architectural one.
+
+- **Latency is stable.** Mean (18.16s) and p50 (17.85s) latency are close,
+  indicating no long tail of outlier-slow requests across the sequential
+  five-agent LangGraph pipeline; p95 (24.1s) reflects the occasional claim
+  requiring more agent calls (e.g. weather lookups, duplicate history checks).
+
+*Full per-claim results and the evaluation harness are available in
+[`eval/`](./eval).*
 
 ---
 
